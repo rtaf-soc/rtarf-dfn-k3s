@@ -9,7 +9,7 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: http://gitea.gitea.svc.cluster.local:3000/admin/local-apps.git
+    repoURL: https://github.com/rtaf-soc/rtarf-dfn-apps.git
     targetRevision: 'main' #Should be based on environment
     path: '99-deployments/applications'
 
@@ -45,7 +45,7 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 type: Opaque    
 stringData:
-  url: http://gitea.gitea.svc.cluster.local:3000/admin/local-apps.git
+  url: https://github.com/rtaf-soc/rtarf-dfn-apps.git
   #username: dummy-gh
   #password: 'notused-because-it-is-public'
   type: git

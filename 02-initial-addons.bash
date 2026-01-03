@@ -22,13 +22,13 @@ echo "Copying file [${SRC_FILE}] to directory [${DST_DIR}]"
 cp ${SRC_FILE} ${DST_DIR}
 
 ################ Gitea here ################
-SRC_FILE=00-configs/addons-gitea.yaml
+#SRC_FILE=00-configs/addons-gitea.yaml
 
 # Replace credential variables in the file
-echo "Replacing credentials in [${SRC_FILE}]"
-sed -i "s/<<GIT_USER>>/${GIT_USER}/g" ${SRC_FILE}
-sed -i "s/<<GIT_PASSWORD>>/${GIT_PASSWORD}/g" ${SRC_FILE}
-sed -i "s/<<GIT_EMAIL>>/${GIT_EMAIL}/g" ${SRC_FILE}
+#echo "Replacing credentials in [${SRC_FILE}]"
+#sed -i "s/<<GIT_USER>>/${GIT_USER}/g" ${SRC_FILE}
+#sed -i "s/<<GIT_PASSWORD>>/${GIT_PASSWORD}/g" ${SRC_FILE}
+#sed -i "s/<<GIT_EMAIL>>/${GIT_EMAIL}/g" ${SRC_FILE}
 
-echo "Copying file [${SRC_FILE}] to directory [${DST_DIR}]"
-cp ${SRC_FILE} ${DST_DIR}
+#echo "Copying file [${SRC_FILE}] to directory [${DST_DIR}]"
+#cp ${SRC_FILE} ${DST_DIR}
