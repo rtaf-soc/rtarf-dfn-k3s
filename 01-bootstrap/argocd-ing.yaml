@@ -1,0 +1,25 @@
+### อันนี้สร้างชั่วคราวเพื่อให้ต่อเข้า argocd ได้แบบไม่ใช้ cert แต่จะถูกสร้างใหม่อีกทีจาก ArgoCD เองอีกที
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-ing-temp
+  namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - argocd-temp.otep.triple-t.co
+      #secretName: argocd-cert
+  rules:
+    - host: argocd-temp.otep.triple-t.co
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 443
