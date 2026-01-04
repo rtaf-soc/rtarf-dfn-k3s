@@ -21,6 +21,10 @@ SRC_FILE=00-configs/addons-cert-manager.yaml
 echo "Copying file [${SRC_FILE}] to directory [${DST_DIR}]"
 cp ${SRC_FILE} ${DST_DIR}
 
+SRC_FILE=00-configs/addons-eck.yaml
+echo "Copying file [${SRC_FILE}] to directory [${DST_DIR}]"
+cp ${SRC_FILE} ${DST_DIR}
+
 ################ Gitea here ################
 #SRC_FILE=00-configs/addons-gitea.yaml
 
