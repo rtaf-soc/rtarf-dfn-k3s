@@ -49,3 +49,17 @@ stringData:
   #username: dummy-gh
   #password: 'notused-because-it-is-public'
   type: git
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-auth-secret-appliance
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque    
+stringData:
+  url: https://github.com/wintech-thai/please-protect-appliance-apps.git
+  #username: dummy-gh
+  #password: 'notused-because-it-is-public'
+  type: git
