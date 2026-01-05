@@ -67,19 +67,19 @@ services:
       - ./10-configs-zeeks:/zeek-configs
     restart: always
 
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:8.12.2
-    container_name: filebeat
-    user: root
-    depends_on:
-      - zeek
-      #- suricata
-    volumes:
-      - ./12-configs-filebeat/filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
-      - ./12-configs-filebeat/module.yaml:/filebeat-modules/module.yaml
-      - /data/zeek:/zeek-logs/current:ro
-    command: ["--strict.perms=false"]
-    restart: always
+  #filebeat:
+  #  image: docker.elastic.co/beats/filebeat:8.12.2
+  #  container_name: filebeat
+  #  user: root
+  #  depends_on:
+  #    - zeek
+  #    #- suricata
+  #  volumes:
+  #    - ./12-configs-filebeat/filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
+  #    - ./12-configs-filebeat/module.yaml:/filebeat-modules/module.yaml
+  #    - /data/zeek:/zeek-logs/current:ro
+  #  command: ["--strict.perms=false"]
+  #  restart: always
 
   #suricata:
   #  image: jasonish/suricata:latest
