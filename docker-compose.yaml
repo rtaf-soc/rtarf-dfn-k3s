@@ -24,7 +24,8 @@ services:
   
       - k3s-server:/var/lib/rancher/k3s
     ports:
-    - 6443:6443 # For kubectl
+    - 127.0.0.1:6443:6443 # For kubectl
+    - 127.0.0.1:5044:30044 # File beat
     - 443:32443
     - 80:32080 # For Let's Encrypt 
     logging:
