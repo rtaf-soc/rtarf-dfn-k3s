@@ -75,7 +75,7 @@ services:
       - zeek
       #- suricata
     volumes:
-      - ./12-configs-filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./12-configs-filebeat/filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
       - ./12-configs-filebeat/module.yaml:/filebeat-modules/module.yaml
       - /data/zeek:/zeek-logs/current:ro
     command: ["--strict.perms=false"]
