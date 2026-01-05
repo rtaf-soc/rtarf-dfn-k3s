@@ -7,7 +7,7 @@ services:
     hostname: k3s-master-1
     restart: always
     image: "rancher/k3s:${K3S_VERSION}"
-    network_mode: "host" #สำหรับให้ censors มาจับ
+    #network_mode: "host" #สำหรับให้ censors มาจับ
     command:
     - server
     - --disable=traefik
