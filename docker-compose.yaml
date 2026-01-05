@@ -55,25 +55,25 @@ services:
         tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
   zeek:
-    image: zeek/zeek:latest
+    image: zeek/zeek:8.0.4
     container_name: zeek
     network_mode: "host"
     privileged: true
     command: >
-      zeek -i enp2s0
+      zeek -i enp2s0 -C local /zeek-configs/zeek.cfg
     volumes:
-      - ./zeek/logs:/opt/zeek/logs
-      - ./zeek/site:/opt/zeek/share/zeek/site
+      - /data/zeek:/zeek-logs/current
+      - ./10-configs-zeeks:/zeek-configs
     restart: unless-stopped
 
-  suricata:
-    image: jasonish/suricata:latest
-    container_name: suricata
-    network_mode: "host"
-    privileged: true
-    command: >
-      suricata -i enp2s0 -c /etc/suricata/suricata.yaml
-    volumes:
-      - ./suricata/etc:/etc/suricata
-      - ./suricata/logs:/var/log/suricata
-    restart: unless-stopped
+  #suricata:
+  #  image: jasonish/suricata:latest
+  #  container_name: suricata
+  #  network_mode: "host"
+  #  privileged: true
+  #  command: >
+  #    suricata -i enp2s0 -c /etc/suricata/suricata.yaml
+  #  volumes:
+  #    - ./suricata/etc:/etc/suricata
+  #    - ./suricata/logs:/var/log/suricata
+  #  restart: unless-stopped
