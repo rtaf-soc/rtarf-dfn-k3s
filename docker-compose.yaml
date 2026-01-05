@@ -24,11 +24,11 @@ services:
       - ./addons:/var/lib/rancher/k3s/server/manifests
   
       - k3s-server:/var/lib/rancher/k3s
-    ports:
-    - 127.0.0.1:6443:6443 # For kubectl
-    - 127.0.0.1:5044:30044 # File beat
-    - 443:32443
-    - 80:32080 # For Let's Encrypt 
+    #ports:
+    #- 127.0.0.1:6443:6443 # For kubectl
+    #- 127.0.0.1:5044:30044 # File beat
+    #- 443:32443
+    #- 80:32080 # For Let's Encrypt 
     logging:
       driver: "json-file"
       options: 
@@ -38,7 +38,7 @@ services:
     hostname: k3s-worker-1
     restart: always
     image: "rancher/k3s:${K3S_VERSION}"
-    #network_mode: "host" #สำหรับให้ censors มาจับ
+    network_mode: "host" #สำหรับให้ censors มาจับ
     command:
     - agent
     tmpfs:
