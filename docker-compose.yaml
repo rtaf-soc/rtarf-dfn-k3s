@@ -7,7 +7,7 @@ services:
     hostname: k3s-master-1
     restart: always
     image: "rancher/k3s:${K3S_VERSION}"
-    #network_mode: "host" #สำหรับให้ censors มาจับ
+    network_mode: "host" #สำหรับให้ censors มาจับ
     command:
     - server
     - --disable=traefik
@@ -38,7 +38,7 @@ services:
     hostname: k3s-worker-1
     restart: always
     image: "rancher/k3s:${K3S_VERSION}"
-    network_mode: "host" #สำหรับให้ censors มาจับ
+    #network_mode: "host" #สำหรับให้ censors มาจับ
     command:
     - agent
     tmpfs:
@@ -49,7 +49,7 @@ services:
       - k3s-agent:/etc/rancher/node
       - ${STORAGE_DIR}:/var/lib/rancher/k3s/storage
     environment:
-    - K3S_URL=https://localhost:6443
+    - K3S_URL=https://192.168.1.100:6443
     - K3S_TOKEN=secret
     logging:
       driver: "json-file"
