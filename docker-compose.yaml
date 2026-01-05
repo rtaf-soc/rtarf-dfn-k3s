@@ -49,7 +49,7 @@ services:
       - k3s-agent:/etc/rancher/node
       - ${STORAGE_DIR}:/var/lib/rancher/k3s/storage
     environment:
-    - K3S_URL=https://server:6443
+    - K3S_URL=https://localhost:6443
     - K3S_TOKEN=secret
     logging:
       driver: "json-file"
