@@ -9,4 +9,4 @@ logging.files:
   keepfiles: 7
   permissions: 0644
 output.logstash:
-  hosts: ["server:5044"]
+  hosts: ["server:30044"]
