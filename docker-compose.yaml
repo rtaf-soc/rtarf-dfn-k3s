@@ -59,8 +59,8 @@ services:
     container_name: zeek
     network_mode: "host"
     privileged: true
+    # Update to your network interface in the zeek command below
     command: >
-      # Update to your network interface
       zeek -i enp2s0 -C local /zeek-configs/zeek.cfg
     volumes:
       - /data/zeek:/zeek-logs/current
