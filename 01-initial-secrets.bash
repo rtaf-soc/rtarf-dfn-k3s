@@ -2,8 +2,8 @@
 
 mkdir -p addons
 
-mkdir -p /data/censors
-mkdir -p /data/storages
+sudo mkdir -p /data/censors
+sudo mkdir -p /data/storages
 
 SRC_FILE=.env
 DST_FILE=addons/initial-secrets.yaml
