@@ -65,8 +65,8 @@ services:
     volumes:
       - /data/zeek:/zeek-logs/current
       - ./10-configs-zeeks:/zeek-configs
-    environment:
-      - DUMMY="000"
+    #environment:
+    #  - DUMMY="000"
     restart: always
 
   filebeat:
