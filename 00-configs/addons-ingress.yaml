@@ -15,13 +15,14 @@ spec:
   targetNamespace: ingress-nginx
   valuesContent: |-
     controller:
+      hostNetwork: true
       service:
         #externalTrafficPolicy: "Local" #To make real-ip works, need to restart pod
         enabled: true
-        type: NodePort
+        type: ClusterIP
         nodePorts:
-          https: 32443
-          http: 32080
+          https: 443 #32443
+          http: 80 #32080
 
       config:
         enable-real-ip: "true"
