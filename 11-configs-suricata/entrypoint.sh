@@ -3,6 +3,9 @@ set -e
 
 RULE_FILE="/var/lib/suricata/rules/suricata.rules"
 
+
+touch /suricata-logs/suricata.fast.log
+
 if [ ! -f "$RULE_FILE" ]; then
   echo "[*] Rules not found, running suricata-update..."
   suricata-update
