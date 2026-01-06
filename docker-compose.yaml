@@ -88,10 +88,10 @@ services:
     container_name: suricata
     network_mode: "host"
     privileged: true
-    command: >
-      suricata -i enp2s0 -c /etc/suricata/suricata.yaml
+    entrypoint: ["/entrypoint.sh"]
     volumes:
       - ./11-configs-suricata/suricata.yaml:/etc/suricata/suricata.yaml
+      - ./11-configs-suricata/entrypoint.sh:/entrypoint.sh
       - /data/suricata:/suricata-logs
       - /data/suricata-rules:/var/lib/suricata/rules
     restart: always
