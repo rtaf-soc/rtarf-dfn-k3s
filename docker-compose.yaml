@@ -93,4 +93,5 @@ services:
     volumes:
       - ./11-configs-suricata/suricata.yaml:/etc/suricata/suricata.yaml
       - /data/suricata:/suricata-logs
+      - /data/suricata-rules:/var/lib/suricata/rules
     restart: always
