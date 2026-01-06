@@ -81,6 +81,7 @@ services:
       - ./12-configs-filebeat/module.yaml:/filebeat-modules/module.yaml
       - /data/zeek:/zeek-logs/current:ro
       - /data/suricata/eve.json:/suricata-logs/eve.json:ro
+      - /data/suricata/suricata.fast.log:/suricata-logs/suricata.fast.log:ro
     command: ["--strict.perms=false"]
     restart: always
 
