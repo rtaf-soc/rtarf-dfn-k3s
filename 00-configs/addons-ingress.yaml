@@ -16,12 +16,13 @@ spec:
   valuesContent: |-
     controller:
       service:
-        #externalTrafficPolicy: "Local" #To make real-ip works, need to restart pod
-        enabled: true
-        type: NodePort
-        nodePorts:
-          https: 32443
-          http: 32080
+        enabled: false
+
+        hostPort:
+          enabled: true
+          ports:
+            http: 80
+            https: 443
 
       config:
         enable-real-ip: "true"
