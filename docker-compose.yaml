@@ -83,14 +83,14 @@ services:
     command: ["--strict.perms=false"]
     restart: always
 
-  #suricata:
-  #  image: jasonish/suricata:latest
-  #  container_name: suricata
-  #  network_mode: "host"
-  #  privileged: true
-  #  command: >
-  #    suricata -i enp2s0 -c /etc/suricata/suricata.yaml
-  #  volumes:
-  #    - ./suricata/etc:/etc/suricata
-  #    - ./suricata/logs:/var/log/suricata
-  #  restart: unless-stopped
+  suricata:
+    image: jasonish/suricata:latest
+    container_name: suricata
+    network_mode: "host"
+    privileged: true
+    command: >
+      suricata -i enp2s0 -c /etc/suricata/suricata.yaml
+    volumes:
+      - ./11-configs-suricata/suricata.yaml:/etc/suricata/suricata.yaml
+      - /data/suricata:/suricata-logs
+    restart: always
