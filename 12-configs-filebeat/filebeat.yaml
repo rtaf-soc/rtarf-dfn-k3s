@@ -8,5 +8,28 @@ logging.files:
   name: filebeat.log
   keepfiles: 7
   permissions: 0644
+
+filebeat.inputs:
+- type: filestream
+  id: suricata-eve
+  paths:
+    - /suricata-logs/eve.json
+
+  parsers:
+    - ndjson:
+        overwrite_keys: true
+        add_error_key: true
+
+  fields:
+    event.module: suricata
+    event.dataset: suricata.eve
+  fields_under_root: true
+
+  processors:
+    - add_host_metadata: ~
+    - add_observer_metadata:
+        netinfo.enabled: true
+    - add_cloud_metadata: ~
+
 output.logstash:
   hosts: ["server:30044"]

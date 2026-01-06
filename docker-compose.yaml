@@ -75,11 +75,12 @@ services:
     user: root
     depends_on:
       - zeek
-      #- suricata
+      - suricata
     volumes:
       - ./12-configs-filebeat/filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
       - ./12-configs-filebeat/module.yaml:/filebeat-modules/module.yaml
       - /data/zeek:/zeek-logs/current:ro
+      - /data/suricata/eve.json:/suricata-logs/eve.json:ro
     command: ["--strict.perms=false"]
     restart: always
 
