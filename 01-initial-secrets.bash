@@ -2,7 +2,6 @@
 
 mkdir -p addons
 
-sudo mkdir -p /data/censors
 sudo mkdir -p /data/storages
 
 SRC_FILE=.env
@@ -35,4 +34,4 @@ export $(xargs <.env)
 
 cp ${TMP_FILE} ${DST_FILE}
 
-#kubectl create secret generic gcp-sa-secret --from-file=sa.json=$HOME/secrets/sa.json
+kubectl apply -f ${DST_FILE}
