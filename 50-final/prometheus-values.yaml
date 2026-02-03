@@ -1,0 +1,25 @@
+fullnameOverride: prometheus
+
+prometheus-node-exporter:
+  hostRootFsMount:
+    enabled: false
+
+grafana:
+  #admin:
+  #  # Initially created by ArgoCD
+  #  existingSecret: "grafana-credentials"
+  #  userKey: GRAFANA_USER
+  #  passwordKey: GRAFANA_PASSWORD
+  testFramework:
+    enabled: false
+
+  sidecar:
+    dashboards:
+      enabled: true
+    datasources:
+      enabled: true
+
+alertmanager:
+  alertmanagerSpec:
+    alertmanagerConfigMatcherStrategy:
+      type: None
