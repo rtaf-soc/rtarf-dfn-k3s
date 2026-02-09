@@ -2,7 +2,7 @@ fullnameOverride: prometheus
 
 prometheus-node-exporter:
   hostRootFsMount:
-    enabled: false
+    enabled: true
 
 grafana:
   #admin:
