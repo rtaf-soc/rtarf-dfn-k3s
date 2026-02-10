@@ -10,7 +10,7 @@ spec:
     - name: null-notifications
     - name: 'discord-notifications'
       webhookConfigs:
-      - url: 'http://discord-alm.discord-alm.svc.cluster.local:9094'
+      - url: 'http://pp-dev-pp-api.pp-development.svc.cluster.local/api/AlertEvent/org/default/action/Notify'
   route:
     groupBy:
       - alertname

@@ -24,6 +24,7 @@ helm template kube-prometheus-crds \
   -f prometheus-values.yaml \
   | kubectl apply -f - --server-side --force-conflicts
 
+# ตอนนี้ชี้ไปที่ DEV environment อยู่ แต่ถ้าเป็น production ต้องเปลี่ยน URL ใน alm-config.yaml ด้วย
 kubectl apply -f alm-config.yaml
 
 cd ..
