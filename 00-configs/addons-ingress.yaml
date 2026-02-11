@@ -26,3 +26,6 @@ spec:
 
       config:
         enable-real-ip: "true"
+        hsts: "false"
+        hsts-include-subdomains: "false"
+        hsts-max-age: "0"
