@@ -23,3 +23,8 @@ alertmanager:
   alertmanagerSpec:
     alertmanagerConfigMatcherStrategy:
       type: None
+
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelector: {}
