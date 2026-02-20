@@ -35,3 +35,6 @@ export $(xargs <.env)
 cp ${TMP_FILE} ${DST_FILE}
 
 kubectl apply -f ${DST_FILE}
+
+
+#kubectl create secret generic gcs-credentials --from-file=gcs.client.default.credentials_file=$HOME/secrets/es-snapshot-gcs.json -n elasticsearch
