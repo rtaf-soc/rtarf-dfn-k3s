@@ -2,7 +2,7 @@
 
 mkdir -p addons
 
-sudo mkdir -p /data/storages
+sudo mkdir -p /data
 
 SRC_FILE=.env
 DST_FILE=addons/initial-secrets.yaml
