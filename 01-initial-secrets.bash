@@ -37,7 +37,7 @@ cp ${TMP_FILE} ${DST_FILE}
 kubectl apply -f ${DST_FILE}
 
 ### GIT ###
-GIT_NS=gittea
+GIT_NS=gitea
 
 kubectl create namespace ${GIT_NS} --dry-run=client -o yaml | kubectl apply -f -
 kubectl create secret generic gitea-admin-secret \
