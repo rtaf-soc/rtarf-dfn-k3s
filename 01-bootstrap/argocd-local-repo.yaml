@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 type: Opaque    
 stringData:
-  url: http://gitea-http.git.svc.cluster.local:3000/local/data-plane.git
+  url: http://gitea-http.gitea.svc.cluster.local:3000/local/data-plane.git
   username: <<GITEA_USERNAME>>
   password: <<GITEA_PASSWORD>>
   type: git
@@ -21,7 +21,7 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 type: Opaque    
 stringData:
-  url: http://gitea-http.git.svc.cluster.local:3000/local/control-plane.git
+  url: http://gitea-http.gitea.svc.cluster.local:3000/local/control-plane.git
   username: <<GITEA_USERNAME>>
   password: <<GITEA_PASSWORD>>
   type: git
