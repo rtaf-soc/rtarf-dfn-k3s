@@ -15,7 +15,7 @@ spec:
 
       config:
         server:
-          ROOT_URL: http://gitea.gitea.svc.cluster.local:3000
+          ROOT_URL: http://gitea-http.gitea.svc.cluster.local:3000
         service:
           DISABLE_REGISTRATION: true
 
