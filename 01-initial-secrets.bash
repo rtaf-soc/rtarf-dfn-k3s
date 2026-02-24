@@ -36,5 +36,15 @@ cp ${TMP_FILE} ${DST_FILE}
 
 kubectl apply -f ${DST_FILE}
 
+### GIT ###
+GIT_NS=gittea
+
+kubectl create namespace ${GIT_NS} --dry-run=client -o yaml | kubectl apply -f -
+kubectl create secret generic gitea-admin-secret \
+  -n ${GIT_NS} \
+  --from-literal=username=${GIT_USER} \
+  --from-literal=password=${GIT_PASSWORD} \
+  --from-literal=email=admin@example.com \
+  --dry-run=client -o yaml | kubectl apply -f -
 
 #kubectl create secret generic gcs-credentials --from-file=gcs.client.default.credentials_file=$HOME/secrets/es-snapshot-gcs.json -n elasticsearch
