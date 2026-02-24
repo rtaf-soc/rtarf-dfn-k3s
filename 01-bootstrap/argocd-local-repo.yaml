@@ -1,13 +1,27 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gitea-auth-secret
+  name: gitea-auth-secret-data
   namespace: argocd
   labels:
     argocd.argoproj.io/secret-type: repository
 type: Opaque    
 stringData:
-  url: http://gitea-http.gitea.svc.cluster.local:3000
+  url: http://gitea-http.git.svc.cluster.local:3000/local/data-plane.git
+  username: <<GITEA_USERNAME>>
+  password: <<GITEA_PASSWORD>>
+  type: git
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitea-auth-secret-control
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque    
+stringData:
+  url: http://gitea-http.git.svc.cluster.local:3000/local/control-plane.git
   username: <<GITEA_USERNAME>>
   password: <<GITEA_PASSWORD>>
   type: git
