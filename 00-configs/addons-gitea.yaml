@@ -38,3 +38,6 @@ spec:
         username: gitea
         password: gitea-db-pass
         database: gitea
+
+    postgresql-ha:
+      enabled: false
