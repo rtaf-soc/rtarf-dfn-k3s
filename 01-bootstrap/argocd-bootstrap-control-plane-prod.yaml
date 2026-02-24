@@ -11,7 +11,7 @@ spec:
           custom: "true"
   template:
     metadata:
-      name: 'pp-prod'
+      name: 'bootstrap-control-plane-prod'
     spec:
       project: "default"
       source:
