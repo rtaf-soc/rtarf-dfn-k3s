@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap-data-plane
+  namespace: argocd
+spec:
+  # The project the application belongs to.
+  project: default
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/wintech-thai/please-protect-data-plane.git
+    targetRevision: 'main' #Should be based on environment
+    path: '99-deployments/applications'
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-auth-secret-data-plane
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque    
+stringData:
+  url: https://github.com/wintech-thai/please-protect-data-plane.git
+  #username: dummy-gh
+  #password: 'notused-because-it-is-public'
+  type: git
