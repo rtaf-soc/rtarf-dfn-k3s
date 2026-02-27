@@ -15,6 +15,12 @@ spec:
   targetNamespace: argocd
   valuesContent: |-
     fullnameOverride: argocd
+
+    server:
+      extraArgs:
+        - --basehref=/tools/argocd
+        - --rootpath=/tools/argocd
+
     dex: {}
 ---    
     #server:  
