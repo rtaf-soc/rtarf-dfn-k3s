@@ -13,6 +13,12 @@ grafana:
   testFramework:
     enabled: false
 
+  grafana.ini:
+    server:
+      root_url: "%(protocol)s://%(domain)s/tools/grafana-k8s"
+      serve_from_sub_path: true
+      domain: ""
+
   sidecar:
     dashboards:
       enabled: true
