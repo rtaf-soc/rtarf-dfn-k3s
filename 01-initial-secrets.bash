@@ -3,6 +3,9 @@
 SRC_FILE=00-configs/initial-secret.yaml
 kubectl apply -f ${SRC_FILE}
 
+# รอให้ Job สร้าง Secret เสร็จ
+sleep 10
+
 ### GIT ###
 GIT_NS=gitea
 
