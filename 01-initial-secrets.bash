@@ -1,5 +1,7 @@
 #!/bin/bash
 
+kubectl delete job secret-init
+
 SRC_FILE=00-configs/initial-secret.yaml
 kubectl apply -f ${SRC_FILE}
 
