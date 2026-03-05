@@ -8,7 +8,7 @@ kubectl apply -f argocd-bootstrap-data-plane.yaml
 kubectl apply -f argocd-bootstrap-control-plane-dev.yaml
 kubectl apply -f argocd-bootstrap-control-plane-prod.yaml
 
-kubectl apply -f argocd-repo-control-plane.yaml
+kubectl apply -f argocd-cluster-secret.yaml
 
 GIT_USER=$(kubectl get secret initial-secret -n default -o jsonpath='{.data.GIT_USER}' | base64 -d)
 GIT_PASSWORD=$(kubectl get secret initial-secret -n default -o jsonpath='{.data.GIT_PASSWORD}' | base64 -d)
