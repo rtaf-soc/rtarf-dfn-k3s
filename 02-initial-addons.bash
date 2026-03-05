@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(xargs <.env)
+#export $(xargs <.env)
 
 mkdir -p addons
 sudo mkdir -p /data

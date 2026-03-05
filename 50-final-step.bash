@@ -2,8 +2,6 @@
 
 # Run this after app install on ArgoCD
 
-export $(xargs <.env)
-
 cd 50-final
 
 kubectl apply -f <(cat <<EOF
