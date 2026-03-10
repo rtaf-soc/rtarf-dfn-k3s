@@ -2,7 +2,7 @@
 
 # Run this after app install on ArgoCD
 
-cd 50-final
+cd 03-monitoring
 
 kubectl apply -f <(cat <<EOF
 apiVersion: v1
