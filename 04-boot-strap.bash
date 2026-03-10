@@ -1,11 +1,18 @@
 #!/bin/bash
 
+MODE=${1:-prod}
+
 cd 01-bootstrap
 
 kubectl apply -f argocd-ing.yaml
-
 kubectl apply -f argocd-bootstrap-data-plane.yaml
-kubectl apply -f argocd-bootstrap-control-plane-dev.yaml
+
+if [ "$MODE" = "dev" ]; then
+  echo "Deploying DEV control plane"
+  kubectl apply -f argocd-bootstrap-control-plane-dev.yaml
+fi
+
+echo "Deploying PROD control plane"
 kubectl apply -f argocd-bootstrap-control-plane-prod.yaml
 
 kubectl apply -f argocd-cluster-secret.yaml
