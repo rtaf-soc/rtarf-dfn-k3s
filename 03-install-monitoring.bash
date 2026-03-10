@@ -12,6 +12,16 @@ metadata:
 EOF
 )
 
+GRAFANA_USER=$(kubectl get secret initial-secret -n default -o jsonpath='{.data.GRAFANA_USER}' | base64 -d)
+GRAFANA_PASSWORD=$(kubectl get secret initial-secret -n default -o jsonpath='{.data.GRAFANA_PASSWORD}' | base64 -d)
+
+YAML_FILE="grafana-secret.yaml"
+cp ${YAML_FILE} ${YAML_FILE}.tmp
+sed -i "s|<<GRAFANA_USER>>|${GRAFANA_USER}|g" ${YAML_FILE}.tmp
+sed -i "s|<<GRAFANA_PASSWORD>>|${GRAFANA_PASSWORD}|g" ${YAML_FILE}.tmp
+kubectl apply -f ${YAML_FILE}.tmp
+
+
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm template kube-prometheus-crds \

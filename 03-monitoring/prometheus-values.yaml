@@ -5,11 +5,11 @@ prometheus-node-exporter:
     enabled: true
 
 grafana:
-  #admin:
-  #  # Initially created by ArgoCD
-  #  existingSecret: "grafana-credentials"
-  #  userKey: GRAFANA_USER
-  #  passwordKey: GRAFANA_PASSWORD
+  admin:
+    existingSecret: "grafana-credentials"
+    userKey: GRAFANA_USER
+    passwordKey: GRAFANA_PASSWORD
+
   testFramework:
     enabled: false
 
